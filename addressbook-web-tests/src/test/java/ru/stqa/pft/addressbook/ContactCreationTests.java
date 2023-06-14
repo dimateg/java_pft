@@ -13,7 +13,7 @@ public class ContactCreationTests {
   private StringBuffer verificationErrors = new StringBuffer();
   private JavascriptExecutor js;
 
-  @BeforeClass(alwaysRun = true)
+  @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
     wd = new ChromeDriver();
     baseUrl = "https://www.google.com/";
@@ -75,7 +75,7 @@ public class ContactCreationTests {
     wd.findElement(By.id("LoginForm")).submit();
   }
 
-  @AfterClass(alwaysRun = true)
+  @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     wd.quit();
     String verificationErrorString = verificationErrors.toString();
