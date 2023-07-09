@@ -56,7 +56,7 @@ public class ContactHelper extends HelperBase {
         returnToContactPage();
     }
 
-    public boolean isThereAGroup() {
+    public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
     }
 }
