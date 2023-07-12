@@ -3,6 +3,7 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -11,7 +12,7 @@ public class ContactHelper extends HelperBase {
         super(wd);
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean isGroupPresented) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("nickname"), contactData.getNickname());
@@ -19,8 +20,14 @@ public class ContactHelper extends HelperBase {
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("email"), contactData.getEmail());
 
-        if (isElementPresent(By.name("new_group"))) {
-            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        if(isGroupPresented){
+            if(contactData.getGroup() != null){
+                new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            }else {
+                Assert.assertTrue(isElementPresent(By.name("new_group")));
+            }
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
     }
 
@@ -49,9 +56,9 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//form[2]/input[2]"));
     }
 
-    public void createContact(ContactData contact) {
+    public void createContact(ContactData contact, boolean isGroupPresented) {
         gotoAddContactPage();
-        fillContactForm(contact);
+        fillContactForm(contact, isGroupPresented);
         submitContactForm();
         returnToContactPage();
     }
