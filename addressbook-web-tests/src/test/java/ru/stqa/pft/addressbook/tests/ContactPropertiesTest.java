@@ -10,14 +10,15 @@ import java.util.stream.Collectors;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactPhoneTest extends TestBase {
+public class ContactPropertiesTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().HomePage();
         if(app.contact().all().size() == 0) {
             app.contact().create(new ContactData()
-                    .withFirstname("Dima").withLastname("Ivanov").withNickname("dimateg").withHome("84951471818").withMobile("89121865498").withWork("123456789").withAddress("Москва, ул. Ленина, д. 1").withEmail("test@gmail.com").withGroup("test2"), true);
+                    .withFirstname("Dima").withLastname("Ivanov").withNickname("dimateg").withHome("84951471818").withMobile("89121865498").withWork("123456789").withAddress("Москва, ул. Ленина, д. 1")
+                    .withEmail("test@gmail.com").withEmail2("test2@gmail.com").withEmail3("test3@gmail.com").withGroup("test2"), true);
         }
     }
 
@@ -28,12 +29,20 @@ public class ContactPhoneTest extends TestBase {
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
 
         assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
+        assertThat(contact.getAllEmails(), equalTo(mergeEmail(contactInfoFromEditForm)));
+}
+
+    private String mergeEmail(ContactData contact) {
+        return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
+                .stream().filter((s) -> ! s.equals(""))
+                .collect(Collectors.joining("\n"));
+
     }
 
     private String mergePhones(ContactData contact) {
         return Arrays.asList(contact.getHome(), contact.getMobile(), contact.getWork())
                 .stream().filter((s) -> ! s.equals(""))
-                .map(ContactPhoneTest::cleaned)
+                .map(ContactPropertiesTest::cleaned)
                 .collect(Collectors.joining("\n"));
 
     }
