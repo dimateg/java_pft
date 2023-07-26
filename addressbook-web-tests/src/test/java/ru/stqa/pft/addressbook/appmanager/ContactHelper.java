@@ -26,12 +26,14 @@ public class ContactHelper extends HelperBase {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("nickname"), contactData.getNickname());
+        attach(By.name("photo"), contactData.getPhoto());
         type(By.name("home"), contactData.getHome());
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("work"), contactData.getWork());
         type(By.name("email"), contactData.getEmail());
         type(By.name("email2"), contactData.getEmail2());
         type(By.name("email3"), contactData.getEmail3());
+
 
         if (isGroupPresented) {
             if (contactData.getGroup() != null) {
@@ -101,6 +103,10 @@ public class ContactHelper extends HelperBase {
 
     public boolean isThereAContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int count() {
+        return wd.findElements(By.name("selected[]")).size();
     }
 
 
