@@ -11,7 +11,7 @@
     "email2": "Email2 0",
     "email3": "Email3 0",
     "group": "test1",
-    "photo": {}
+    "photo": "src\\test\\resources\\stru.png"
   },
   {
     "firstname": "Firstname 1",
@@ -25,7 +25,7 @@
     "email2": "Email2 1",
     "email3": "Email3 1",
     "group": "test1",
-    "photo": {}
+    "photo": "src\\test\\resources\\stru.png"
   },
   {
     "firstname": "Firstname 2",
@@ -39,6 +39,6 @@
     "email2": "Email2 2",
     "email3": "Email3 2",
     "group": "test1",
-    "photo": {}
+    "photo": "src\\test\\resources\\stru.png"
   }
 ]

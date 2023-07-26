@@ -32,7 +32,7 @@ public class ContactData {
     private String allphones;
     private String allemails;
     @Expose
-    private File photo;
+    private String photo;
 
 
 
@@ -101,7 +101,7 @@ public class ContactData {
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -161,7 +161,11 @@ public class ContactData {
         return allemails;
     }
     public File getPhoto() {
-        return photo;
+        try {
+            return new File(photo);
+        } catch (NullPointerException e) {
+            return null;
+        }
     }
 
 
