@@ -10,7 +10,7 @@
     "email": "Email 0",
     "email2": "Email2 0",
     "email3": "Email3 0",
-    "group": "test1",
+    "group": "test 1",
     "photo": "src\\test\\resources\\stru.png"
   },
   {
@@ -24,7 +24,7 @@
     "email": "Email 1",
     "email2": "Email2 1",
     "email3": "Email3 1",
-    "group": "test1",
+    "group": "test 1",
     "photo": "src\\test\\resources\\stru.png"
   },
   {
@@ -38,7 +38,7 @@
     "email": "Email 2",
     "email2": "Email2 2",
     "email3": "Email3 2",
-    "group": "test1",
+    "group": "test 1",
     "photo": "src\\test\\resources\\stru.png"
   }
 ]
