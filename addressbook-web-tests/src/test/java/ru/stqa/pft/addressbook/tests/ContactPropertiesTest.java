@@ -30,7 +30,9 @@ public class ContactPropertiesTest extends TestBase {
 
         assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
         assertThat(contact.getAllEmails(), equalTo(mergeEmail(contactInfoFromEditForm)));
-}
+        assertThat(contact.getAddress(), equalTo(contactInfoFromEditForm.getAddress()));
+
+    }
 
     private String mergeEmail(ContactData contact) {
         return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
