@@ -15,7 +15,7 @@ public class ContactPropertiesTest extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
         app.goTo().HomePage();
-        if(app.contact().all().size() == 0) {
+        if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData()
                     .withFirstname("Dima").withLastname("Ivanov").withNickname("dimateg").withHome("84951471818").withMobile("89121865498").withWork("123456789").withAddress("Москва, ул. Ленина, д. 1")
                     .withEmail("test@gmail.com").withEmail2("test2@gmail.com").withEmail3("test3@gmail.com").withGroup("test2"), true);
@@ -36,14 +36,14 @@ public class ContactPropertiesTest extends TestBase {
 
     private String mergeEmail(ContactData contact) {
         return Arrays.asList(contact.getEmail(), contact.getEmail2(), contact.getEmail3())
-                .stream().filter((s) -> ! s.equals(""))
+                .stream().filter((s) -> !s.equals(""))
                 .collect(Collectors.joining("\n"));
 
     }
 
     private String mergePhones(ContactData contact) {
         return Arrays.asList(contact.getHome(), contact.getMobile(), contact.getWork())
-                .stream().filter((s) -> ! s.equals(""))
+                .stream().filter((s) -> !s.equals(""))
                 .map(ContactPropertiesTest::cleaned)
                 .collect(Collectors.joining("\n"));
 
