@@ -70,7 +70,6 @@ public class ContactDataGenerator {
                     .withEmail(String.format("Email %s", i))
                     .withEmail2(String.format("Email2 %s", i))
                     .withEmail3(String.format("Email3 %s", i))
-                    .withGroup("test 1")
                     .withPhoto(photo));
 
         }
