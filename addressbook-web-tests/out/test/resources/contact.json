@@ -12,33 +12,5 @@
     "email3": "Email3 0",
     "group": "test 1",
     "photo": "src\\test\\resources\\stru.png"
-  },
-  {
-    "firstname": "Firstname 1",
-    "lastname": "Lastname 1",
-    "nickname": "Nickname 1",
-    "home": "84951695041",
-    "mobile": "89251695041",
-    "work": "89075496541",
-    "address": "Address 1",
-    "email": "Email 1",
-    "email2": "Email2 1",
-    "email3": "Email3 1",
-    "group": "test 1",
-    "photo": "src\\test\\resources\\stru.png"
-  },
-  {
-    "firstname": "Firstname 2",
-    "lastname": "Lastname 2",
-    "nickname": "Nickname 2",
-    "home": "84951695042",
-    "mobile": "89251695042",
-    "work": "89075496542",
-    "address": "Address 2",
-    "email": "Email 2",
-    "email2": "Email2 2",
-    "email3": "Email3 2",
-    "group": "test 1",
-    "photo": "src\\test\\resources\\stru.png"
   }
 ]

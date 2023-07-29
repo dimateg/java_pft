@@ -31,15 +31,16 @@ public class ContactCreationTests extends TestBase {
             line = reader.readLine();
         }
         Gson gson = new Gson();
-        List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>(){}.getType());
-        return contacts.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
+        List<ContactData> contacts = gson.fromJson(json, new TypeToken<List<ContactData>>() {
+        }.getType());
+        return contacts.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
     }
 
     @Test(dataProvider = "validContactsFromJson")
     public void testContactCreationTests(ContactData contact) {
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         app.contact().create((contact), true);
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertEquals(after.size(), before.size() + 1);
 
         assertThat(after, equalTo(

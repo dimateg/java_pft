@@ -63,7 +63,6 @@ public class ContactData {
     private String photo;
 
 
-
     public ContactData() {
     }
 
@@ -144,50 +143,62 @@ public class ContactData {
     }
 
 
-
-    public void setId(int id) {
-        this.id = id;
-    }
     public int getId() {
         return id;
     }
+
     public String getFirstname() {
         return firstname;
     }
+
     public String getLastname() {
         return lastname;
     }
+
     public String getNickname() {
         return nickname;
     }
+
     public String getHome() {
         return home;
     }
+
     public String getMobile() {
         return mobile;
     }
-    public String getWork() { return work;}
+
+    public String getWork() {
+        return work;
+    }
+
     public String getAddress() {
         return address;
     }
+
     public String getEmail() {
         return email;
     }
+
     public String getEmail2() {
         return email2;
     }
+
     public String getEmail3() {
         return email3;
     }
+
     public String getGroup() {
         return group;
     }
+
     public String getAllPhones() {
         return allphones;
     }
+
     public String getAllEmails() {
         return allemails;
     }
+
     public File getPhoto() {
         try {
             return new File(photo);
@@ -197,13 +208,21 @@ public class ContactData {
     }
 
 
-
     @Override
     public String toString() {
         return "ContactData{" +
                 "id=" + id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", home='" + home + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", work='" + work + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", email2='" + email2 + '\'' +
+                ", email3='" + email3 + '\'' +
+                ", group='" + group + '\'' +
                 '}';
     }
 
@@ -214,14 +233,32 @@ public class ContactData {
 
         ContactData that = (ContactData) o;
 
+        if (id != that.id) return false;
         if (!Objects.equals(firstname, that.firstname)) return false;
-        return Objects.equals(lastname, that.lastname);
+        if (!Objects.equals(lastname, that.lastname)) return false;
+        if (!Objects.equals(nickname, that.nickname)) return false;
+        if (!Objects.equals(home, that.home)) return false;
+        if (!Objects.equals(mobile, that.mobile)) return false;
+        if (!Objects.equals(work, that.work)) return false;
+        if (!Objects.equals(address, that.address)) return false;
+        if (!Objects.equals(email, that.email)) return false;
+        if (!Objects.equals(email2, that.email2)) return false;
+        return Objects.equals(email3, that.email3);
     }
 
     @Override
     public int hashCode() {
-        int result = firstname != null ? firstname.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
         result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
+        result = 31 * result + (home != null ? home.hashCode() : 0);
+        result = 31 * result + (mobile != null ? mobile.hashCode() : 0);
+        result = 31 * result + (work != null ? work.hashCode() : 0);
+        result = 31 * result + (address != null ? address.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (email2 != null ? email2.hashCode() : 0);
+        result = 31 * result + (email3 != null ? email3.hashCode() : 0);
         return result;
     }
 }

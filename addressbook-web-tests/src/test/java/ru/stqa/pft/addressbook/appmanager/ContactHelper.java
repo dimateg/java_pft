@@ -27,6 +27,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("nickname"), contactData.getNickname());
         attach(By.name("photo"), contactData.getPhoto());
+        type(By.name("address"), contactData.getAddress());
         type(By.name("home"), contactData.getHome());
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("work"), contactData.getWork());
@@ -78,7 +79,7 @@ public class ContactHelper extends HelperBase {
 
     public void selectContactById(int id) {
         wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
-        }
+    }
 
 
     public void create(ContactData contact, boolean isGroupPresented) {
@@ -138,7 +139,7 @@ public class ContactHelper extends HelperBase {
         String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
         String work = wd.findElement(By.name("work")).getAttribute("value");
         wd.navigate().back();
-        return  new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3).withHome(home).withMobile(mobile).withWork(work);
+        return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3).withHome(home).withMobile(mobile).withWork(work);
     }
 }
 
