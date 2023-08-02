@@ -6,7 +6,7 @@ import ru.stqa.pft.mantis.appmanager.HttpSession;
 
 import java.io.IOException;
 
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 
 public class LoginTests extends TestBase{
