@@ -1,5 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
+import com.jayway.restassured.RestAssured;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -25,6 +26,7 @@ public class ApplicationManager {
     private UserHelper userHelper;
     private NavigationHelper navigationHelper;
     private SoapHelper soapHelper;
+    private RestHelper restHelper;
 
 
     public ApplicationManager(String browser) {
@@ -36,6 +38,7 @@ public class ApplicationManager {
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+        RestAssured.authentication = RestAssured.basic("b31e382ca8445202e66b03aaf31508a3", "");
     }
 
     public void stop() {
@@ -121,6 +124,13 @@ public class ApplicationManager {
             soapHelper = new SoapHelper(this);
         }
         return soapHelper;
+    }
+
+    public RestHelper rest() {
+        if (restHelper == null) {
+            restHelper = new RestHelper(this);
+        }
+        return restHelper;
     }
 
 }
