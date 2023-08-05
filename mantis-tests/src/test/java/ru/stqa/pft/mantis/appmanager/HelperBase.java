@@ -24,7 +24,7 @@ public class HelperBase {
         click(locator);
         if (text != null) {
             String existingText = wd.findElement(locator).getAttribute("value");
-            if (! text.equals(existingText)) {
+            if (!text.equals(existingText)) {
                 wd.findElement(locator).clear();
                 wd.findElement(locator).sendKeys(text);
             }
@@ -36,8 +36,6 @@ public class HelperBase {
             wd.findElement(locator).sendKeys(file.getAbsolutePath());
         }
     }
-
-
 
 
     public boolean isAlertPresent() {
@@ -56,5 +54,16 @@ public class HelperBase {
         } catch (NoSuchElementException ex) {
             return false;
         }
+    }
+
+    public void adminLogin() {
+        login(app.getProperty("web.adminLogin"), app.getProperty("web.adminPassword"));
+    }
+
+    public void login(String name, String password) {
+        type(By.name("username"), name);
+        click(By.cssSelector("input[value=\"Login\"]"));
+        type(By.name("password"), password);
+        click(By.cssSelector("input[value=\"Login\"]"));
     }
 }

@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MailHelper{
+public class MailHelper {
     private final ApplicationManager app;
     private final Wiser wiser;
 
@@ -43,6 +43,7 @@ public class MailHelper{
             return null;
         }
     }
+
 
     public void start() {
         wiser.start();
